@@ -28,7 +28,7 @@ elseif($data->password=='')
     echo json_encode(['status'=>'no password']);
 }
 else{
-    $sql = "INSERT INTO  registration (id,name,mobile,password,token) VALUES ('$data->id', '$data->name', '$data->mobile','$data->password,'$token')";
+    $sql = "INSERT INTO  registration (id,name,mobile,password,token) VALUES ('$data->id', '$data->name', '$data->mobile','$data->password','$token')";
     $run=mysqli_query($conn,$sql);
 if ($run) {
     echo json_encode(['status' => 'success','msg'=>'added!']);
