@@ -8,7 +8,7 @@ header('Access-Control-Allow-Headers: Content-Type,Access-Control-Allow-Headers,
 $data=json_decode(file_get_contents("php://input"));
 include('db.php');
 
-
+$token=rand(1000,9999);
 
 if($data->id=='')
 {
@@ -28,7 +28,7 @@ elseif($data->password=='')
     echo json_encode(['status'=>'no password']);
 }
 else{
-    $sql = "INSERT INTO  registration (id,name,mobile,password) VALUES ('$data->id', '$data->name', '$data->mobile','$data->password')";
+    $sql = "INSERT INTO  registration (id,name,mobile,password,token) VALUES ('$data->id', '$data->name', '$data->mobile','$data->password,'$token')";
     $run=mysqli_query($conn,$sql);
 if ($run) {
     echo json_encode(['status' => 'success','msg'=>'added!']);
