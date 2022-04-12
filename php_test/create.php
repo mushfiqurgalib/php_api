@@ -19,12 +19,16 @@ elseif($data->name=='')
     echo json_encode(['status'=>'no name']);
 }
 
-elseif($data->email=='')
+elseif($data->mobile=='')
 {
-    echo json_encode(['status'=>'no email']);
+    echo json_encode(['status'=>'no mobile']);
+}
+elseif($data->password=='')
+{
+    echo json_encode(['status'=>'no password']);
 }
 else{
-    $sql = "INSERT INTO  registration (id,name,email) VALUES ('$data->id', '$data->name', '$data->email')";
+    $sql = "INSERT INTO  registration (id,name,mobile,password) VALUES ('$data->id', '$data->name', '$data->mobile','$data->password')";
     $run=mysqli_query($conn,$sql);
 if ($run) {
     echo json_encode(['status' => 'success','msg'=>'added!']);
