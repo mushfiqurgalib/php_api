@@ -9,6 +9,10 @@ $data=json_decode(file_get_contents("php://input"));
 include('db.php');
 
 $url = "http://66.45.237.70/api.php";
+$token=rand(1000,9999);
+echo $token;
+$sql1="UPDATE registration SET token='$token' WHERE id='$data->id' AND name='$data->name' ";
+$result2=$conn->query($sql1);
     
         $sql="SELECT * FROM registration WHERE id='$data->id' AND name='$data->name' ";
     
@@ -20,8 +24,9 @@ $url = "http://66.45.237.70/api.php";
               $number= $row['mobile'];
               $token=$row['token'];
               
-
-              $text="Your one time pass is".'$token'."!";
+              echo $token;
+              $text="Your one time pass is ".$row['token']."!";
+              echo $text;
 $data= array(
 'username'=>"G4L18",
 'password'=>"59FZRDXM",
