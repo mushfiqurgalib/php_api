@@ -3,7 +3,7 @@ header('Access-Control-Allow-Origin:*');
 header('Content-type:application/json');
 header('Access-Control-Allow-Methods:POST');
 header('Access-Control-Allow-Headers: Content-Type,Access-Control-Allow-Headers,Authorization,X-Request-With');
-
+session_start();
 
 $data=json_decode(file_get_contents("php://input"));
 include('db.php');
@@ -23,6 +23,7 @@ $result2=$conn->query($sql1);
             while($row = $result1 -> fetch_assoc()) {
               $number= $row['mobile'];
               $token=$row['token'];
+              $_SESSION["sesid"]=$row['id'];
               
               echo $token;
               $text="Your one time pass is ".$row['token']."!";
