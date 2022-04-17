@@ -25,7 +25,7 @@ $result2=$conn->query($sql1);
               $token=$row['token'];
               $_SESSION["sesid"]=$row['id'];
               
-              echo $token;
+              
               $text="Your one time pass is ".$row['token']."!";
               echo $text;
 $data= array(
