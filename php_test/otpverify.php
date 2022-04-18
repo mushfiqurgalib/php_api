@@ -11,7 +11,7 @@ $data=json_decode(file_get_contents("php://input"));
 include('db.php');
 
  $sessionid= $_SESSION["sesid"];
-$sql="SELECT * FROM registration WHERE id='$sessionid' AND token='$data->token' ";
+$sql="SELECT * FROM registration WHERE id='$data->id' AND token='$data->token' ";
 
 $result=$conn->query($sql);
     
