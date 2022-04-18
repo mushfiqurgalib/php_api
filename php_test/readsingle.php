@@ -26,7 +26,7 @@ $result2=$conn->query($sql1);
               $_SESSION["sesid"]=$row['id'];
               
               
-              $text="Your Sultan tea garden one time pass is ".$row['token']."!";
+              $text="Your Sultan tea garden OTP is ".$row['token']."!";
               echo $text;
 $data= array(
 'username'=>"G4L18",

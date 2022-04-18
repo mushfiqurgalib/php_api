@@ -10,7 +10,7 @@ session_start();
 $data=json_decode(file_get_contents("php://input"));
 include('db.php');
 
- $sessionid= $_SESSION["sesid"];
+
 $sql="SELECT * FROM registration WHERE id='$data->id' AND token='$data->token' ";
 
 $result=$conn->query($sql);
@@ -23,7 +23,7 @@ $result=$conn->query($sql);
     
 
               $sql1= "INSERT INTO users (id, name, mobile)
-                SELECT id, name, mobile FROM registration WHERE id='$sessionid'";
+                SELECT id, name, mobile FROM registration WHERE id='$data->id'";
                 $result1=$conn->query($sql1);
                 if ($result1) {
                     echo json_encode(['status' => 'success','msg'=>'added!']);
