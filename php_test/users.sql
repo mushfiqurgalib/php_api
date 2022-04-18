@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 16, 2022 at 08:35 PM
+-- Generation Time: Apr 18, 2022 at 09:32 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 7.4.28
 
@@ -39,7 +39,17 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `mobile`, `password`) VALUES
-(12345, 'arif', 'arif_2012@google.com', '');
+(22345, 'Galib', '8801718142322', '444567');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
