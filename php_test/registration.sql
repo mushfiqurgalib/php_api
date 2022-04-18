@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 18, 2022 at 09:32 PM
+-- Generation Time: Apr 18, 2022 at 10:21 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 7.4.28
 
@@ -39,8 +39,8 @@ CREATE TABLE `registration` (
 --
 
 INSERT INTO `registration` (`id`, `name`, `mobile`, `token`) VALUES
-(12345, 'arif', 'arif_2012@google.com', '6011'),
-(22345, 'Galib', '8801718142322', '2437'),
+(12345, 'arif', '8801518957013', '8241'),
+(22345, 'Galib', '8801718142322', '9889'),
 (12315121, 'fahad', '8801718142322', '7188');
 
 --
