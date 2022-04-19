@@ -1,5 +1,5 @@
-
 <?php
+
 
 header('Access-Control-Allow-Origin:*');
 header('Content-type:application/json');
@@ -10,20 +10,16 @@ session_start();
 $data=json_decode(file_get_contents("php://input"));
 include('db.php');
 
-
-$sql="SELECT * FROM registration WHERE id='$data->id' AND token='$data->token' ";
+$sessionid= $_SESSION["sesid"];
+$sql="SELECT * FROM registration WHERE id='$sessionid' AND token='$data->token' ";
 
 $result=$conn->query($sql);
     
         if ($result ->num_rows > 0) {
             // output data of each row
             while($row = $result -> fetch_assoc()) {
-
-              echo $data->token;
-    
-
               $sql1= "INSERT INTO users (id, name, mobile)
-                SELECT id, name, mobile FROM registration WHERE id='$data->id'";
+                SELECT id, name, mobile FROM registration WHERE id='$sessionid'";
                 $result1=$conn->query($sql1);
                 if ($result1) {
                     echo json_encode(['status' => 'success','msg'=>'added!']);

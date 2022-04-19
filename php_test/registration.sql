@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 18, 2022 at 10:21 PM
+-- Generation Time: Apr 16, 2022 at 08:35 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 7.4.28
 
@@ -31,6 +31,7 @@ CREATE TABLE `registration` (
   `id` int(11) NOT NULL,
   `name` varchar(40) NOT NULL,
   `mobile` varchar(50) NOT NULL,
+  `password` varchar(40) NOT NULL,
   `token` varchar(40) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -38,10 +39,10 @@ CREATE TABLE `registration` (
 -- Dumping data for table `registration`
 --
 
-INSERT INTO `registration` (`id`, `name`, `mobile`, `token`) VALUES
-(12345, 'arif', '8801518957013', '8241'),
-(22345, 'Galib', '8801718142322', '9889'),
-(12315121, 'fahad', '8801718142322', '7188');
+INSERT INTO `registration` (`id`, `name`, `mobile`, `password`, `token`) VALUES
+(12345, 'arif', 'arif_2012@google.com', '', '6011'),
+(22345, 'Galib', '8801718142322', '11234', '2345'),
+(12315121, 'fahad', '8801718142322', '12345', '7188');
 
 --
 -- Indexes for dumped tables

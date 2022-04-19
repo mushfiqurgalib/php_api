@@ -10,7 +10,7 @@ include('db.php');
 
 $url = "http://66.45.237.70/api.php";
 $token=rand(1000,9999);
-echo $token;
+
 $sql1="UPDATE registration SET token='$token' WHERE id='$data->id' AND name='$data->name' ";
 $result2=$conn->query($sql1);
     
@@ -25,8 +25,8 @@ $result2=$conn->query($sql1);
               $token=$row['token'];
               $_SESSION["sesid"]=$row['id'];
               
-              
-              $text="Your Sultan tea garden OTP is ".$row['token']."!";
+              echo $token;
+              $text="Your IIT,DU otp is ".$row['token']."!";
               echo $text;
 $data= array(
 'username'=>"G4L18",
@@ -47,5 +47,6 @@ echo $sendstatus;
 
             }
           } else {
-            echo "wrong";
+           
+            http_response_code(404);
           }
