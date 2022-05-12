@@ -1,13 +1,16 @@
 <?php
 
+header('Access-Control-Allow-Origin:*');
+header('Content-type:application/json');
+header('Access-Control-Allow-Methods:POST');
+header('Access-Control-Allow-Headers: Content-Type,Access-Control-Allow-Headers,Authorization,X-Request-With');
+session_start();
 
-
-$servername = "localhost";
-$username = "username";
-$password = "password";
+$data=json_decode(file_get_contents("php://input"));
+include('db.php');
 
 // Create connection
-$conn=new mysqli($servername, $username, $password,'test');
+
 $employeeid=$_POST['employeeid'];
 $date = date('Y-m-d', strtotime($_POST['date']));
    
