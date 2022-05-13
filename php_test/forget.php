@@ -43,9 +43,9 @@ curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 $smsresult = curl_exec($ch);
 $p = explode("|",$smsresult);
 $sendstatus = $p[0];
-echo $sendstatus;
+echo $data;
 
             }
           } else {
-            echo "wrong";
+            http_response_code(404);
           }

@@ -10,8 +10,11 @@ session_start();
 $data=json_decode(file_get_contents("php://input"));
 include('db.php');
 
-$sessionid= $_SESSION["sesid"];
 
-$sql = "INSERT INTO users (password)
-VALUES ('$data->password') WHERE id='$sessionid'";
+
+$sql = "UPDATE users SET password='$data->password' WHERE id='$data->id'";
 $run=mysqli_query($conn,$sql);
+if ($run) {
+    echo json_encode(['status' => 'success','msg'=>'added!']);
+  } else {
+    echo json_encode(['status' => 'failed','msg'=>'sorry!']);}
