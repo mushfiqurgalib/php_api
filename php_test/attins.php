@@ -11,14 +11,15 @@ include('db.php');
 
 // Create connection
 
-$employeeid=$_POST['employeeid'];
-$date = date('Y-m-d', strtotime($_POST['date']));
-   
-$sql = "INSERT INTO attendance (employeeid,date) VALUES ('$employeeid','$date')";  
+ 
+// $date = date('Y-m-d', strtotime('date1'));
+
+//  $date = date('Y-m-d', strtotime('$data->date'));
+ $sql = "INSERT INTO attendance (employeeid,date,status) VALUES ('$data->employeeid','$data->date','$data->status')";  
+
 $result=$conn->query($sql);
 
 if ($result) {
     echo json_encode(['status' => 'success','msg'=>'added!']);
   } else {
     echo json_encode(['status' => 'failed','msg'=>'sorry!']);}
-
