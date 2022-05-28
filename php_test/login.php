@@ -8,7 +8,7 @@ session_start();
 $data=json_decode(file_get_contents("php://input"));
 include('db.php');
 
-$sql="SELECT * FROM users WHERE id='$data->id' AND password='$data->password' ";
+$sql="SELECT * FROM users WHERE id='$data->id' AND password=md5('$data->password') ";
     
         $result1=$conn->query($sql);
     
