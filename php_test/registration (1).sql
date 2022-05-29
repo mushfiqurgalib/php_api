@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 29, 2022 at 12:05 PM
+-- Generation Time: May 29, 2022 at 12:07 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 7.4.29
 
@@ -24,32 +24,31 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Table structure for table `registration`
 --
 
-CREATE TABLE `users` (
+CREATE TABLE `registration` (
   `id` varchar(500) NOT NULL,
   `name` varchar(100) NOT NULL,
   `mobile` varchar(100) NOT NULL,
-  `password` varchar(40) NOT NULL
+  `token` varchar(10000) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `users`
+-- Dumping data for table `registration`
 --
 
-INSERT INTO `users` (`id`, `name`, `mobile`, `password`) VALUES
-('12345', 'galib', '8801718142322', '827ccb0eea8a706c4c34a16891f84e7b'),
-('22345', 'arif', '8801718123455', '');
+INSERT INTO `registration` (`id`, `name`, `mobile`, `token`) VALUES
+('12345', 'galib', '8801718142322', '7045');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `users`
+-- Indexes for table `registration`
 --
-ALTER TABLE `users`
+ALTER TABLE `registration`
   ADD PRIMARY KEY (`id`);
 COMMIT;
 

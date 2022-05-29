@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 22, 2022 at 07:56 AM
+-- Generation Time: May 29, 2022 at 12:07 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 7.4.29
 
@@ -32,16 +32,32 @@ CREATE TABLE `file` (
   `name` varchar(10000) NOT NULL,
   `size` varchar(10000) NOT NULL,
   `downloads` int(255) NOT NULL,
-  `employeeid` int(255) NOT NULL
+  `employeeid` int(255) NOT NULL,
+  `ename` varchar(500) NOT NULL,
+  `mobile` varchar(500) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `file`
 --
 
-INSERT INTO `file` (`id`, `name`, `size`, `downloads`, `employeeid`) VALUES
-(1, 'Proposal Form SPL-2.pdf', '65034', 0, 0),
-(2, 'Proposal Form SPL-2.pdf', '65034', 0, 0);
+INSERT INTO `file` (`id`, `name`, `size`, `downloads`, `employeeid`, `ename`, `mobile`) VALUES
+(1, 'Proposal Form SPL-2.pdf', '65034', 8, 0, '', ''),
+(2, 'Proposal Form SPL-2.pdf', '65034', 1, 0, '', ''),
+(3, '1120_SE305feedbacksheet.pdf', '646323', 0, 0, '', ''),
+(4, 'Group_6Assignment_4.pdf', '583253', 0, 0, '', ''),
+(5, 'Group_6Assignment_4.pdf', '583253', 0, 0, '', ''),
+(6, 'Group_6Assignment_4.pdf', '583253', 0, 0, '', ''),
+(7, 'Group_6Assignment_4.pdf', '583253', 0, 0, '', ''),
+(8, 'Group_6Assignment_4.pdf', '583253', 0, 0, '', ''),
+(9, 'Group_6Assignment_4.pdf', '583253', 0, 0, '', ''),
+(10, 'Group_6Assignment_4.pdf', '583253', 0, 0, '', ''),
+(11, 'Group_6Assignment_4.pdf', '583253', 0, 0, '', ''),
+(13, 'Group_6Assignment_4.pdf', '583253', 0, 12345, '', ''),
+(16, 'Group_6Assignment_4.pdf', '583253', 0, 12345, '', ''),
+(18, 'Group_6Assignment_4.pdf', '583253', 0, 12345, '', ''),
+(19, 'Group_6Assignment_4.pdf', '583253', 0, 12345, '', ''),
+(20, 'Group_6Assignment_4.pdf', '583253', 0, 12345, 'nahid', '8801718142322');
 
 --
 -- Indexes for dumped tables
@@ -61,7 +77,7 @@ ALTER TABLE `file`
 -- AUTO_INCREMENT for table `file`
 --
 ALTER TABLE `file`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
