@@ -1,3 +1,4 @@
+
 <?php
 
 
@@ -14,10 +15,18 @@ include('db.php');
 // $employeeid=$_POST['id'];
 // $ename=$_POST['name'];
 // $mobile=$_POST['mobile'];
-$sql="INSERT INTO salary(employeeid,basic,rent,medical,tax) VALUES ('$data->id','$data->basic','$data->rent','$data->medical','$data->tax') ";
-if (mysqli_query($conn, $sql)) {
-    echo "File uploaded successfully";
+$employeeid=$data->id;
+$basic=$data->basic;
+$rent=$data->rent;
+$medical=$data->medical;
+$tax=$data->tax;
+if($employeeid)
+{
+$sql="INSERT INTO salary(employeeid,basic,rent,medical,tax) VALUES ('$employeeid','$basic','$rent','$medical','$tax') ";}
+$result=$conn->query($sql);
+if($result){
+    $response[] = array('status'=>1);
+}else{
+    $response[] = array('status'=>0);
 }
- else {
-echo "Failed to upload file.";
-}
+echo json_encode($response);
