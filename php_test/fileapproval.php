@@ -14,7 +14,7 @@ include('db.php');
 $employeeid=$_POST['id'];
 $ename=$_POST['name'];
 $mobile=$_POST['mobile'];
-$sql="INSERT INTO loan(employeeid,ename,mobile) VALUES ('$employeeid','$ename','$mobile') ";
+$sql="INSERT INTO loan(employeeid,ename,mobile,amount) VALUES ('$data->id','$data->name','$data->mobile','$data->amount') ";
 if (mysqli_query($conn, $sql)) {
     echo "File uploaded successfully";
 }
