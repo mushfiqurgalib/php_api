@@ -90,7 +90,7 @@ $result7=$conn->query($sql7);
 $row7 = mysqli_fetch_assoc($result7); 
 
 $gross=$row4['basic']+$bonus+$row6['rent']+$row7['medical'];
-$net=$gross-$absence-$sql5['tax'];
+$net=$gross-$absence-$row5['tax'];
   $html.=
   "<table border='1' width='600' cellspacing='0'>
 
