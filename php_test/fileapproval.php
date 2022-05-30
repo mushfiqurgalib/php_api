@@ -11,13 +11,18 @@ header('Access-Control-Allow-Headers: Content-Type,Access-Control-Allow-Headers,
 
 $data=json_decode(file_get_contents("php://input"));
 include('db.php');
-$employeeid=$_POST['id'];
-$ename=$_POST['name'];
-$mobile=$_POST['mobile'];
-$sql="INSERT INTO loan(employeeid,ename,mobile,amount) VALUES ('$data->id','$data->name','$data->mobile','$data->amount') ";
-if (mysqli_query($conn, $sql)) {
-    echo "File uploaded successfully";
+$employeeid=$data->id;
+$ename=$data->name;
+$mobile=$data->mobile;
+$amount=$data->amount;
+if($employeeid){
+$sql="INSERT INTO loan(employeeid,ename,mobile,amount) VALUES ('$employeeid','$ename','$mobile','$amount') ";
+
 }
- else {
-echo "Failed to upload file.";
+$result=$conn->query($sql);
+if($result){
+    $response[] = array('status'=>1);
+}else{
+    $response[] = array('status'=>0);
 }
+echo json_encode($response);
