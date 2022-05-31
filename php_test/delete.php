@@ -9,23 +9,16 @@ $data=json_decode(file_get_contents("php://input"));
 include('db.php');
 
 
-
-if($data->id)
+$id=$data->id;
+if($id)
 {
     
 
-$query="DELETE FROM registration  WHERE id=".$data->id;
-$run=mysqli_query($conn,$query);
-if($run)
-{
-    echo json_encode(['status' => 'success','msg'=>'product Deleted']);
-}
-
-else {
-    echo json_encode(['status' => 'failed','msg'=>'sorry!']);
+$query="DELETE FROM registration  WHERE id='$id' ";}
+$result=mysqli_query($conn,$query);
+if($result){
+    $response[] = array('status'=>1);
+  }else{
+    $response[] = array('status'=>0);
   }
-
-}
-else{
-    echo json_encode(['status' => 'failed','msg'=>'no user id!']);
-}
+  echo json_encode($response);
