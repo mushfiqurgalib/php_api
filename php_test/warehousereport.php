@@ -83,9 +83,9 @@ $totalpest=$row4['pestincome']-$row5['pestout'];
 </tr>";
 $html.=
 "<tr>
-<td>Tea Incoming</td>
+<td>Tea Leaf Incoming</td>
 
-<td>Tea Outgoing</td>
+<td>Tea Leaf Outgoing</td>
  
 <td>Fertilizer Incoming</td>
 <td>Fertilizer Outgoing</td>
@@ -120,7 +120,7 @@ $html.=
 <td>".$row5['pestout'];
 $html.="</td></tr>";
 
-$html.="<tr > <td rowspan='2'> <b>Net Tea</b></td> <td rowspan='2'>".$totaltea;
+$html.="<tr > <td rowspan='2'> <b>Net Tea Leaf</b></td> <td rowspan='2'>".$totaltea;
 $html.="</td>";
 $html.="<td rowspan='2'><b> Net Fertilizer</b></td> <td rowspan='2'>".$totalfert;
 $html.="</td>";
