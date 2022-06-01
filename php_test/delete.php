@@ -14,7 +14,7 @@ if($id)
 {
     
 
-$query="DELETE FROM registration  WHERE id='$id' ";}
+$query="DELETE FROM users  WHERE id='$_GET[id]' ";}
 $result=mysqli_query($conn,$query);
 if($result){
     $response[] = array('status'=>1);

@@ -12,7 +12,7 @@ include('db.php');
 
     
 
-$query="DELETE FROM loan  WHERE id='$_GET[id]' ";
+$query="DELETE FROM loan  WHERE employeeid='$_GET[id]' ";
 $result=mysqli_query($conn,$query);
 if($result){
     $response[] = array('status'=>1);
