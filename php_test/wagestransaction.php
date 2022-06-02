@@ -15,15 +15,18 @@ include('db.php');
 // $employeeid=$_POST['id'];
 // $ename=$_POST['name'];
 // $mobile=$_POST['mobile'];
-$transactionid=rand(200000,299999);
+
 $employeeid='$data->id';
 $month='$data->month';
 $sql="SELECT COUNT(*) as 'att' FROM attendance where employeeid='$data->id' AND status='1' AND MONTH(date)='$data->month' ";
 $result=$conn->query($sql);
 $row = mysqli_fetch_assoc($result);
 $wage=$row['att']*300;
+
+echo $wage;
+
 if($transactionid){
-$sql8="INSERT INTO transaction(tid,date,employeeid,amount,type) VALUES ('$transactionid',CURRENT_TIME(),'$data->id','$wage','wages') ";
+$sql8="INSERT INTO transaction(tid,date,employeeid,amount,type) VALUES ('$data->tid',CURRENT_TIME(),'$data->id','$wage','wages') ";
 }if (mysqli_query($conn, $sql8)) {
     echo "File uploaded successfully";
 }
