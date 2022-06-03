@@ -13,20 +13,20 @@ $data=json_decode(file_get_contents("php://input"));
 include('db.php');
 
   $transactionid= rand(200000,299999);
-  $sql = "SELECT COUNT(*) as 'att' FROM attendance where employeeid='$data->id' AND status='1' AND MONTH(date)='$data_>month' ";
+  $sql = "SELECT COUNT(*) as 'att' FROM attendance where employeeid='$data->employeeid' AND status='1' AND MONTH(date)='$data_>month' ";
   $result=$conn->query($sql);
   $html="";
   $html.="<h1 align='center'> Payslip  </h1>";
-  $sql1="SELECT id FROM users where id='$data->id' ";
+  $sql1="SELECT id FROM users where id='$data->employeeid' ";
   $result1=$conn->query($sql1);
   $row1=mysqli_fetch_assoc($result1);
   $html.="<div ><p align='left'> Employee ID:".$row1['id'];
   
-  $sql2="SELECT name FROM users WHERE id='$_GET[id]' ";
-  $result2=$conn->query($sql2);
-  $row2=mysqli_fetch_assoc($result2);
+//   $sql2="SELECT name FROM users WHERE id='$]' ";
+//   $result2=$conn->query($sql2);
+//   $row2=mysqli_fetch_assoc($result2);
  
-   $html.="&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; Month:".date("F", strtotime(date("Y") ."-". $_GET['month'] ."-01"));
+   //$html.="&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; Month:".date("F", strtotime(date("Y") ."-". $_GET['month'] ."-01"));
    
 
   $html.="</p>";
@@ -38,11 +38,11 @@ include('db.php');
    
  $html.="<p> Attendance :" .$row['att'];
  
- $sql3 = "SELECT COUNT(*) as 'abs' FROM attendance where employeeid='$data->id' AND status='0' AND MONTH(date)='$data->month' ";
+ $sql3 = "SELECT COUNT(*) as 'abs' FROM attendance where employeeid='$data->employeeid' AND status='0' AND MONTH(date)='$data->month' ";
  $result3=$conn->query($sql3);
  $row3 = mysqli_fetch_assoc($result3); 
  $html.="&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; Absence :".$row3['abs'];
-$sql4="SELECT basic FROM salary where employeeid='$data->id'";
+$sql4="SELECT basic FROM salary where employeeid='$data->employeeid'";
 $result4=$conn->query($sql4);
 $row4 = mysqli_fetch_assoc($result4);
 if('$data->month'==5 || '$data->month'==7)
@@ -52,15 +52,15 @@ if('$data->month'==5 || '$data->month'==7)
 else
 {$bonus=0;}
 $absence=$row3['abs']*600;
-$sql5="SELECT tax FROM salary where employeeid='$data->id'";
+$sql5="SELECT tax FROM salary where employeeid='$data->employeeid'";
 $result5=$conn->query($sql5);
 $row5 = mysqli_fetch_assoc($result5); 
 
-$sql6="SELECT rent FROM salary where employeeid='$data->id'";
+$sql6="SELECT rent FROM salary where employeeid='$data->employeeid'";
 $result6=$conn->query($sql6);
 $row6 = mysqli_fetch_assoc($result6); 
 
-$sql7="SELECT medical FROM salary where employeeid='$data->id'";
+$sql7="SELECT medical FROM salary where employeeid='$data->employeeid'";
 $result7=$conn->query($sql7);
 $row7 = mysqli_fetch_assoc($result7); 
 
