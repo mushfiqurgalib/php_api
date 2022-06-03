@@ -16,10 +16,10 @@ include('attendancetransaction.php');
 // $ename=$_POST['name'];
 // $mobile=$_POST['mobile'];
 
-$employeeid='$data->id';
+// $employeeid='$data->id';
 
 
-if($data->employeeid){
+if('$data->tid'){
 $sql8="INSERT INTO transaction(tid,date,employeeid,amount,type) VALUES ('$data->tid',CURRENT_TIME(),'$data->employeeid','$net','salary') ";
 }if (mysqli_query($conn, $sql8)) {
     echo "File uploaded successfully";
