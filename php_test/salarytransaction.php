@@ -20,7 +20,7 @@ $employeeid='$data->id';
 
 
 if($transactionid){
-$sql8="INSERT INTO transaction(tid,date,employeeid,amount,type) VALUES ('$transactionid',CURRENT_TIME(),'$_GET[id]','$net','salary') ";
+$sql8="INSERT INTO transaction(tid,date,employeeid,amount,type) VALUES ('$transactionid',CURRENT_TIME(),'$data->id','$net','salary') ";
 }if (mysqli_query($conn, $sql8)) {
     echo "File uploaded successfully";
 }
