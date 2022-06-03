@@ -13,7 +13,7 @@ $data=json_decode(file_get_contents("php://input"));
 include('db.php');
 
   $transactionid= rand(200000,299999);
-  $sql = "SELECT COUNT(*) as 'att' FROM attendance where employeeid='$data->employeeid' AND status='1' AND MONTH(date)='$data_>month' ";
+  $sql = "SELECT COUNT(*) as 'att' FROM attendance where employeeid='$data->employeeid' AND status='1' AND MONTH(date)='$data->month' ";
   $result=$conn->query($sql);
   $html="";
   $html.="<h1 align='center'> Payslip  </h1>";
@@ -29,12 +29,12 @@ include('db.php');
    //$html.="&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; Month:".date("F", strtotime(date("Y") ."-". $_GET['month'] ."-01"));
    
 
-  $html.="</p>";
-  $html.="<p> Name:".$row2['name'];
- $html.="</p> ";
- $html.="<p> Transaction ID: ";
- $html.=$transactionid;
- $row = mysqli_fetch_assoc($result); 
+//   $html.="</p>";
+//   $html.="<p> Name:".$row2['name'];
+//  $html.="</p> ";
+//  $html.="<p> Transaction ID: ";
+//  $html.=$transactionid;
+  $row = mysqli_fetch_assoc($result); 
    
  $html.="<p> Attendance :" .$row['att'];
  
