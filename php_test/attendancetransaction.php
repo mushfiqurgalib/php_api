@@ -22,18 +22,18 @@ include('db.php');
   $row1=mysqli_fetch_assoc($result1);
   $html.="<div ><p align='left'> Employee ID:".$row1['id'];
   
-//   $sql2="SELECT name FROM users WHERE id='$]' ";
-//   $result2=$conn->query($sql2);
-//   $row2=mysqli_fetch_assoc($result2);
+  $sql2="SELECT name FROM users WHERE id='$data->employeeid' ";
+  $result2=$conn->query($sql2);
+  $row2=mysqli_fetch_assoc($result2);
  
-   //$html.="&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; Month:".date("F", strtotime(date("Y") ."-". $_GET['month'] ."-01"));
+   $html.="&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; Month:".date("F", strtotime(date("Y") ."-". '$data->month' ."-01"));
    
 
-//   $html.="</p>";
-//   $html.="<p> Name:".$row2['name'];
-//  $html.="</p> ";
-//  $html.="<p> Transaction ID: ";
-//  $html.=$transactionid;
+  $html.="</p>";
+  $html.="<p> Name:".$row2['name'];
+ $html.="</p> ";
+ $html.="<p> Transaction ID: ";
+ $html.=$transactionid;
   $row = mysqli_fetch_assoc($result); 
    
  $html.="<p> Attendance :" .$row['att'];
@@ -135,8 +135,8 @@ $html.=
         //   $mpdf = new \Mpdf\Mpdf();
         //   $mpdf->WriteHTML($html);
         //   $mpdf->Output();
-        //   ?>
+        //   
         //   </body>
         //   </html>
-         
+         ?>
   
