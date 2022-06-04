@@ -10,11 +10,10 @@ include('db.php');
 
 
 
-if($id)
-{
+
     
 
-$query="DELETE FROM file  WHERE id='$_GET[file_id]' ";}
+$query="DELETE FROM file  WHERE id='$_GET[file_id]' ";
 $result=mysqli_query($conn,$query);
 if($result){
     $response[] = array('status'=>1);
