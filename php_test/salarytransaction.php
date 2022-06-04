@@ -20,7 +20,7 @@ include('attendancetransaction.php');
 // $employeeid='$data->id';
 
 $month=date("F", strtotime(date("Y") ."-". '$data->month' ."-01"));
-if('$data->tid'){
+if($data->employeeid){
 $sql8="INSERT INTO transaction(tid,date,employeeid,amount,type) VALUES ('$data->tid',CURRENT_TIME(),'$data->employeeid','$net','salary') ";
 }if (mysqli_query($conn, $sql8)) {
     $response[] = array('status'=>1);
