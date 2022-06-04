@@ -9,12 +9,12 @@ $data=json_decode(file_get_contents("php://input"));
 include('db.php');
 
 
-$id=$data->id;
+
 if($id)
 {
     
 
-$query="DELETE FROM file  WHERE id='$id' ";}
+$query="DELETE FROM file  WHERE id='$_GET[file_id]' ";}
 $result=mysqli_query($conn,$query);
 if($result){
     $response[] = array('status'=>1);
