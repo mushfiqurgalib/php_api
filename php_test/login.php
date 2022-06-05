@@ -15,10 +15,10 @@ $sql="SELECT * FROM users WHERE id='$data->id' AND password=md5('$data->password
         if ($result1 ->num_rows > 0) {
             // output data of each row
             while($row = $result1 -> fetch_assoc()) {
-                echo json_encode(['status' => 'success','msg'=>'added!']);
+                echo json_encode(['status' => 1]);
 
                 }}
                 else
                 {
-                    echo json_encode(['status' => 'failed','msg'=>'failed!']);
+                    echo json_encode(['status' => 0]);
                 }
