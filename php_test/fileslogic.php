@@ -40,9 +40,10 @@ include('db.php');
         if (move_uploaded_file($file, $destination)) {
             $sql = "INSERT INTO file (name, size, downloads,employeeid,ename,mobile) VALUES ('$filename', $size, 0,'$eid','$ename','$mobile')";
             if (mysqli_query($conn, $sql)) {
-                echo "File uploaded successfully";
+                $response[] = array('status'=>1);
             }
         } else {
-            echo "Failed to upload file.";
+            $response[] = array('status'=>0);
         }
     }
+    echo json_encode($response);
