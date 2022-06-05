@@ -26,11 +26,11 @@ $result=$conn->query($sql);
                 SELECT id, name, mobile FROM registration WHERE id='$data->id'";
                 $result1=$conn->query($sql1);
                 if ($result1) {
-                    echo json_encode(['status' => 'success','msg'=>'added!']);
+                    echo json_encode(['status' => 1]);
                   } else {
-                    echo json_encode(['status' => 'failed','msg'=>'sorry!']);
+                    echo json_encode(['status' => 0]);
             }}}
             else
             {
-                echo "wrong otp";
+              echo json_encode(['status' => 0]);
             }

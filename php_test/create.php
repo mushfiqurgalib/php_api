@@ -31,7 +31,7 @@ else{
     $sql = "INSERT INTO  registration (id,name,mobile,password,token) VALUES ('$data->id', '$data->name', '$data->mobile','$data->password','$token')";
     $run=mysqli_query($conn,$sql);
 if ($run) {
-    echo json_encode(['status' => 'success','msg'=>'added!']);
+    echo json_encode(['status' => 1]);
   } else {
-    echo json_encode(['status' => 'failed','msg'=>'sorry!']);
+    echo json_encode(['status' => 0]);
   }}
