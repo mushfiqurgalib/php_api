@@ -8,17 +8,18 @@ session_start();
 $data=json_decode(file_get_contents("php://input"));
 include('db.php');
 
-$sql="SELECT * FROM users WHERE id='$data->id' AND password=md5('$data->password') ";
+$sql="SELECT * FROM users WHERE id='$data->id' AND password='$data->password' ";
     
         $result1=$conn->query($sql);
     
         if ($result1 ->num_rows > 0) {
             // output data of each row
             while($row = $result1 -> fetch_assoc()) {
-                echo json_encode(['status' => 1]);
+                $response[] = array('status'=>1);
 
                 }}
                 else
                 {
-                    echo json_encode(['status' => 0]);
+                    $response[] = array('status'=>0);
                 }
+                echo json_encode($response);
