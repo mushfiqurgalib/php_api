@@ -26,11 +26,12 @@ $result=$conn->query($sql);
                 SELECT id, name, mobile FROM registration WHERE id='$data->id'";
                 $result1=$conn->query($sql1);
                 if ($result1) {
-                    echo json_encode(['status' => 1]);
+                  $response[] = array('status'=>1);
                   } else {
-                    echo json_encode(['status' => 0]);
+                    $response[] = array('status'=>0);
             }}}
             else
             {
-              echo json_encode(['status' => 0]);
+              $response[] = array('status'=>0);
             }
+            echo json_encode($response);

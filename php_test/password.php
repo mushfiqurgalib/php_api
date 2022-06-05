@@ -10,11 +10,12 @@ session_start();
 $data=json_decode(file_get_contents("php://input"));
 include('db.php');
 
-$pass=$data->password;
 
-$sql = "UPDATE users SET password=md5($pass) WHERE id='$data->id'";
+
+$sql = "UPDATE users SET password='$data->password' WHERE id='$data->id'";
 $run=mysqli_query($conn,$sql);
 if ($run) {
-    echo json_encode(['status' => 'success','msg'=>'added!']);
+  $response[] = array('status'=>1);
   } else {
-    echo json_encode(['status' => 'failed','msg'=>'sorry!']);}
+    $response[] = array('status'=>1);}
+    echo json_encode($response);
