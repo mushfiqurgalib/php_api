@@ -23,13 +23,13 @@ $sql8="INSERT INTO loan(employeeid,ename,mobile,amount) VALUES ('$employeeid','$
 
     $text="Your loan application has been  approved!";
     //  echo $text;
-    $sql9="SELECT mobile FROM loan WHERE employeeid='$data->id'";
+    $sql9="SELECT mobile FROM users WHERE id='$data->id'";
     $result1=$conn->query($sql9);
     
-    if ($result1 ->num_rows > 0) {
-        // output data of each row
-        while($row = $result1 -> fetch_assoc()) {
-          $number= $row['mobile'];
+    // if ($result1 ->num_rows > 0) {
+    //     // output data of each row
+    //     while($row = $result1 -> fetch_assoc()) {
+          $number= $data->mobile;
               // echo $text;
                 $data= array(
                 'username'=>"G4L18",
@@ -46,8 +46,8 @@ $sql8="INSERT INTO loan(employeeid,ename,mobile,amount) VALUES ('$employeeid','$
             $smsresult = curl_exec($ch);
             $p = explode("|",$smsresult);
             $sendstatus = $p[0];
-            // echo $sendstatus;
-    }}}
+            //  echo $sendstatus;
+    }
  else {
     $response[] = array('status'=>0);
 }
