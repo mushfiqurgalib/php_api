@@ -15,20 +15,13 @@ include('db.php');
 // $employeeid=$_POST['id'];
 // $ename=$_POST['name'];
 // $mobile=$_POST['mobile'];
+// $url = "http://66.45.237.70/api.php";
+// $month1=date("F", strtotime(date("Y") ."-". '$data->month' ."-01"));
+$employeeid='$data->employeeid';
+$month='$data->month';
+$sql="SELECT COUNT(*) as 'att' FROM attendance where employeeid='$data->employeeid' AND status='1' AND MONTH(date)='$data->month' ";
+$result=$conn->query($sql);
+$row = mysqli_fetch_assoc($result);
+$wage=$row['att']*300;
 
-
-$sql="SELECT * FROM transaction where tid='$data->tid' ";
-$result1=$conn->query($sql);
-    
-if ($result1 ->num_rows > 0) {
-    // output data of each row
-    while($row = $result1 -> fetch_assoc()) {
-        echo json_encode(['status' => 'success','msg'=>'added!']);
-
-        }}
-        else
-        {
-            echo json_encode(['status' => 'failed','msg'=>'failed!']);
-        }
-
-
+echo json_encode($wage);
